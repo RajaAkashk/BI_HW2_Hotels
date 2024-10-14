@@ -13,7 +13,7 @@ const corsOptions = {
   credentials: true,
   optionSuccessStatus: 200,
 };
-app.use(cors());
+app.use(cors(corsOptions));
 
 const newHotel1 = {
   name: "New Hotel",
