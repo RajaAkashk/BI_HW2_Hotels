@@ -7,16 +7,7 @@ app.use(express.json());
 
 intializeDatabase();
 
-const timeout = require('connect-timeout');
-app.use(timeout('30s'));
-
 const cors = require("cors");
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-  optionSuccessStatus: 200,
-};
-
 app.use(cors());
 
 const newHotel1 = {
@@ -122,13 +113,11 @@ app.post("/hotels", async (req, res) => {
 async function allHotels() {
   try {
     const hotel = await Hotels.find();
-    // console.log("ALL HOTELS:", hotel);
     return hotel;
   } catch (error) {
     throw error;
   }
 }
-// allHotels();
 
 app.get("/hotels", async (req, res) => {
   try {
@@ -390,3 +379,5 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log("Server is running on port :-", PORT);
 });
+
+module.exports = app;
