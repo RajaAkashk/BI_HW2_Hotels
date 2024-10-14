@@ -7,6 +7,9 @@ app.use(express.json());
 
 intializeDatabase();
 
+const timeout = require('connect-timeout');
+app.use(timeout('30s'));
+
 const cors = require("cors");
 app.use(cors());
 
@@ -381,3 +384,5 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log("Server is running on port :-", PORT);
 });
+
+module.exports = app;
