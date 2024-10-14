@@ -11,6 +11,12 @@ const timeout = require('connect-timeout');
 app.use(timeout('30s'));
 
 const cors = require("cors");
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+  optionSuccessStatus: 200,
+};
+
 app.use(cors());
 
 const newHotel1 = {
@@ -384,5 +390,3 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log("Server is running on port :-", PORT);
 });
-
-module.exports = app;
